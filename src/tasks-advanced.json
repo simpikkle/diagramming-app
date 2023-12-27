@@ -1,0 +1,47 @@
+{
+  "tasks": [
+    {
+      "taskId": "TASK-1",
+      "taskName": "Build a rocket ship 🚀",
+      "blockedBy": [
+        "TASK-2",
+        "TASK-4",
+        "TASK-7"
+      ]
+    },
+    {
+      "taskId": "TASK-4",
+      "taskName": "Hire engineers",
+      "blockedBy": [
+        "TASK-6"
+      ]
+    },
+    {
+      "taskId": "TASK-7",
+      "taskName": "Make a big plan"
+    },
+    {
+      "taskId": "TASK-2",
+      "taskName": "Get funding",
+      "blockedBy": [
+        "TASK-5",
+        "TASK-3"
+      ]
+    },
+    {
+      "taskId": "TASK-3",
+      "taskName": "Call investors"
+    },
+    {
+      "taskId": "TASK-5",
+      "taskName": "IPO"
+    },
+    {
+      "taskId": "TASK-6",
+      "taskName": "Find a budget",
+      "blockedBy": [
+        "TASK-3"
+      ]
+    }
+  ]
+}
