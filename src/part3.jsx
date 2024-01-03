@@ -27,10 +27,10 @@ export const drawTasks = () => {
     const visit = (task) => {
       if (visited.has(task)) return;
       visited.add(task);
-      sortedTasks.push(task);
       if (task.blockedBy && task.blockedBy.length > 0) {
         task.blockedBy.forEach(visit);
       }
+      sortedTasks.push(task);
     };
     unsortedTasks.forEach(visit);
     sortedTasks.reverse()
