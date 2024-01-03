@@ -1,4 +1,5 @@
 import '../src/assets/style.css';
+// Now we are using another json file, with more tasks that are not ordered
 import payload from "./tasks-advanced.json";
 
 export const drawTasks = () => {
@@ -19,6 +20,7 @@ export const drawTasks = () => {
     return sortTopologically(payload.tasks);
   }
 
+  // This is just a variation of the sort for our use case
   function sortTopologically(unsortedTasks) {
     const visited = new Set();
     const sortedTasks = [];
@@ -31,6 +33,7 @@ export const drawTasks = () => {
       }
     };
     unsortedTasks.forEach(visit);
+    sortedTasks.reverse()
     return sortedTasks;
   }
 
@@ -64,7 +67,7 @@ export const drawTasks = () => {
 
   const created = new Map();
   const draw = async (task, currentPosition) => {
-    if (created.has(task)) return
+    if (created.has(task)) return created.get(task)
     const miroTask = await miro.board.createShape({
       content: task.taskName,
       shape: 'round_rectangle',
@@ -74,7 +77,7 @@ export const drawTasks = () => {
     created.set(task, miroTask)
 
     if (task.blockedBy) {
-      currentPosition.y += 150;
+      currentPosition.y += offset;
       const positions = calculatePositions(task.blockedBy.length, currentPosition);
       for (const blockingTask of task.blockedBy) {
         if (!created.has(blockingTask)) {
@@ -83,7 +86,6 @@ export const drawTasks = () => {
         connect(miroTask, created.get(blockingTask))
       }
     }
-
     return miroTask
   }
 
@@ -97,7 +99,7 @@ export const drawTasks = () => {
     }
   }
 
-  execute().then(() =>
+  execute().then(() => 
     created.clear()
   )
 };

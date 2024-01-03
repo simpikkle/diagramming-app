@@ -1,4 +1,5 @@
 import '../src/assets/style.css';
+// Now we are using a json file that defines some simple tasks
 import payload from "./tasks.json";
 
 export const drawTasks = () => {
@@ -23,14 +24,19 @@ export const drawTasks = () => {
     if (length === 1) {
       return [currentPosition];
     }
+    // The coefficient can be different depending on your case
+    // For example, here we want to position items in both directions (left and right),
+    // That's why it can be negative.
+    // But it can be as simple as just an increment from 0  
+    let k = - (Math.ceil(length / 2) - 1);
     const positions = [];
-    let x = currentPosition.x
     for (let i = 0; i < length; i++) {
       positions.push({
-        x: x,
+        // Try experimenting with different horizontal offsets
+        x: currentPosition.x + 250 * k,
         y: currentPosition.y
       })
-      x += offset
+      k++;
     }
     return positions;
   }
@@ -49,7 +55,7 @@ export const drawTasks = () => {
 
   const created = new Map();
   const draw = async (task, currentPosition) => {
-    if (created.has(task)) return
+    if (created.has(task)) return created.get(task)
     const miroTask = await miro.board.createShape({
       content: task.taskName,
       shape: 'round_rectangle',
@@ -59,7 +65,7 @@ export const drawTasks = () => {
     created.set(task, miroTask)
 
     if (task.blockedBy) {
-      currentPosition.y += 150;
+      currentPosition.y += offset;
       const positions = calculatePositions(task.blockedBy.length, currentPosition);
       for (const blockingTask of task.blockedBy) {
         if (!created.has(blockingTask)) {
@@ -68,7 +74,6 @@ export const drawTasks = () => {
         connect(miroTask, created.get(blockingTask))
       }
     }
-
     return miroTask
   }
 
@@ -82,7 +87,7 @@ export const drawTasks = () => {
     }
   }
 
-  execute().then(() =>
+  execute().then(() => 
     created.clear()
   )
 };

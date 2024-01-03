@@ -1,19 +1,28 @@
-## Diagramming App
+# Building diagrams on a Miro board
 
-**&nbsp;ℹ&nbsp;Note**:
+## About
 
-- We recommend a Chromium-based web browser for local development with HTTP. \
-  Safari enforces HTTPS; therefore, it doesn't allow localhost through HTTP.
-- For more information, visit our [developer documentation](https://developers.miro.com).
+This repository is a code source for the video on the Miro Developer Platform channel. It shows one of the many ways to build diagrams on a Miro board.
+In this example, we're taking a list of tasks from the json file and displaying the dependencies between them on the Miro board.
+
+There are 3 parts in the video with a corresponding 3 files in the repository:
+
+1. In part 1 we create two shapes and connect them to each other
+2. In part 2 we load the tasks from the json file, calculate positions for them on the Miro board, and build a simple diagram
+3. In part 3 we go a step further and sort the tasks before displaying them on the board. We also use more complex json with tasks.
+
+## App details
 
 ### How to start locally
 
 - Run `npm i` to install dependencies.
 - Run `npm start` to start developing. \
   Your URL should be similar to this example:
- ```
- http://localhost:3000
- ```
+
+```
+http://localhost:3000
+```
+
 - Paste the URL under **App URL** in your
   [app settings](https://developers.miro.com/docs/build-your-first-hello-world-app#step-3-configure-your-app-in-miro).
 - Open a board; you should see your app in the app toolbar or in the **Apps**
@@ -39,14 +48,3 @@
 ├── app.html       // The app itself. It's loaded on the board inside the 'appContainer'
 └── index.html     // The app entry point. This is what you specify in the 'App URL' box in the Miro app settings
 ```
-
-### About the app
-
-This sample app provides you with boilerplate setup and configuration that you can further customize to build your own app.
-
-<!-- describe shortly the purpose of the sample app -->
-
-Built using [`create-miro-app`](https://www.npmjs.com/package/create-miro-app).
-
-This app uses [Vite](https://vitejs.dev/). \
-If you want to modify the `vite.config.js` configuration, see the [Vite documentation](https://vitejs.dev/guide/).
