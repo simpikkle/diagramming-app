@@ -11,6 +11,8 @@ There are 3 parts in the video with a corresponding 3 files in the repository:
 2. In part 2 we load the tasks from the json file, calculate positions for them on the Miro board, and build a simple diagram
 3. In part 3 we go a step further and sort the tasks before displaying them on the board. We also use more complex json with tasks.
 
+<img width="972" alt="image" src="https://github.com/simpikkle/diagramming-app/assets/17803164/a3d68908-77f1-4406-b954-c158a9372df6">
+
 ## App details
 
 ### How to start locally
