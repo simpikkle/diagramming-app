@@ -5,11 +5,19 @@
 This repository is a code source for the video on the Miro Developer Platform channel. It shows one of the many ways to build diagrams on a Miro board.
 In this example, we're taking a list of tasks from the json file and displaying the dependencies between them on the Miro board.
 
+## Watch the Video Tutorial
+
+Watch the video below to learn how to build diagrams on a Miro board programmatically, using Miro's WebSDK.
+
 There are 3 parts in the video with a corresponding 3 files in the repository:
 
-1. In part 1 we create two shapes and connect them to each other
-2. In part 2 we load the tasks from the json file, calculate positions for them on the Miro board, and build a simple diagram
-3. In part 3 we go a step further and sort the tasks before displaying them on the board. We also use more complex json with tasks.
+1. In [part 1](https://github.com/simpikkle/diagramming-app/blob/main/src/part1.jsx) we create two shapes and connect them to each other
+2. In [part 2](https://github.com/simpikkle/diagramming-app/blob/main/src/part2.jsx) we load the tasks from the json file, calculate positions for them on the Miro board, and build a simple diagram
+3. In [part 3](https://github.com/simpikkle/diagramming-app/blob/main/src/part3.jsx) we go a step further and sort the tasks before displaying them on the board. We also use more complex json with tasks.
+
+[![Build a Diagramming App with Miros WebSDK](https://img.youtube.com/vi/hBLbEVIJL6Y/0.jpg)](https://youtu.be/hBLbEVIJL6Y)
+
+The app will produce a diagram similar to the one below.
 
 <img width="972" alt="image" src="https://github.com/simpikkle/diagramming-app/assets/17803164/a3d68908-77f1-4406-b954-c158a9372df6">
 
